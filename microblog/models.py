@@ -18,7 +18,7 @@ class Users(models.Model):
 class Posts(models.Model):
     content = models.CharField(max_length=140, blank=False)
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
-    category = models.ForeignKey(Categories)
+    category = models.ForeignKey(Categories, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
 #TODO: Crear clase de likes
