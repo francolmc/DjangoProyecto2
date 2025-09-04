@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from .forms import CategoryForm
 
 # Create your views here.
+def home(request):
+    return render(request, 'home.html')
+
 def create_category(request):
     if request.method == 'POST':
         form = CategoryForm(request.POST)

@@ -19,6 +19,7 @@ from django.urls import path
 from microblog import views
 
 urlpatterns = [
+    path('', views.home, name="home"),
     path('category/create', views.create_category, name="create_category"),
     path('category/list', views.category_list, name="category_list"),
     path('admin/', admin.site.urls),
