@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from .forms import CategoryForm
+from .models import Posts
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    posts = Posts.objects.select_related('user').all().order_by('-created_at')
+    return render(request, 'home.html', { 'posts': posts })
 
 def create_category(request):
     if request.method == 'POST':

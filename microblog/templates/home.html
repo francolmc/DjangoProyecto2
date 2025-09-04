@@ -5,5 +5,10 @@
 {% endblock title %}
 
 {% block content %}
-    Pagina principal del Microblog
+    Estas son las ultimas publicaciones
+    <ul>
+    {% for post in posts %}
+    <li>{{ post.content }} ({{ post.user.name }})</li>
+    {% endfor %}
+    </ul>
 {% endblock content %}
