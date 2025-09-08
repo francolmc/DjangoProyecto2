@@ -1,5 +1,12 @@
 from django import forms
-from .models import Categories
+from .models import Categories, CustomUsers
+from django.contrib.auth.forms import UserCreationForm
+
+class CustomUsersCreationForm(UserCreationForm):
+    class Meta:
+        model = CustomUsers
+        fields = ('username', 'email', 'first_name',
+                  'last_name', 'personal_url')
 
 class CategoryForm(forms.ModelForm):
     class Meta:

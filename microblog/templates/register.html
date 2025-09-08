@@ -1,0 +1,13 @@
+{% extends "template_base.html" %}
+
+{% block title %}
+Registro de usuario
+{% endblock title %}
+
+{% block content %}
+<form method="post" action="{% url 'microblog:register' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Registrarse</button>
+</form>
+{% endblock content %}

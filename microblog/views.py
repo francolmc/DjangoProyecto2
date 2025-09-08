@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import CategoryForm
+from .forms import CategoryForm, CustomUsersCreationForm
 from .models import Posts
+from django.views.generic import CreateView
 
 # Create your views here.
 def home(request):
@@ -19,3 +20,8 @@ def create_category(request):
 
 def category_list(request):
     return render(request, 'category_list.html')
+
+class CustomSignUpView(CreateView):
+    form_class = CustomUsersCreationForm
+    template_name = 'register.html'
+    success_url = '/login'
