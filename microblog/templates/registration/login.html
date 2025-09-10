@@ -1,0 +1,13 @@
+{% extends "template_base.html" %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+{% block content %}
+<form method="post" action="{% url 'microblog:login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Acceder</button>
+</form>
+{% endblock content %}

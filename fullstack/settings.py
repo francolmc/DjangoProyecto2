@@ -124,3 +124,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Especificar cual sera el nuevo modelo de usuario para la aplicacion
 AUTH_USER_MODEL = 'microblog.CustomUsers'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'
+LOGOUT_REDIRECT_URL = '/login/'
