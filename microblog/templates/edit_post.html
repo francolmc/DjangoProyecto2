@@ -1,13 +1,13 @@
 {% extends "template_base.html" %}
 
 {% block title %}
-Crear publicación
+Editar publicación
 {% endblock title %}
 
 {% block content %}
-<form method="post" action="{% url 'microblog:create_post' %}">
+<form method="post" action="{% url 'microblog:edit_post' object.id %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Publicar</button>
+    <button type="submit">Modificar</button>
 </form>
 {% endblock content %}

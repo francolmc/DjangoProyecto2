@@ -6,6 +6,13 @@
     <title>NoviceNerds Microblog | {% block title %}Home{% endblock %}</title>
 </head>
 <body>
+    {% if user.is_authenticated %}
+        <p> 👋 {{ user.username }}</p>
+        <form method="post" action="{% url 'microblog:logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    {% endif %}
     {% block content %}
     {% endblock %}
 </body>

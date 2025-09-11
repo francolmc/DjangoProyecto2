@@ -1,0 +1,15 @@
+{% extends "template_base.html" %}
+
+{% block title %}
+Editar publicación
+{% endblock title %}
+
+{% block content %}
+<form method="post" action="{% url 'microblog:delete_post' object.id %}">
+    {% csrf_token %}
+    <p>¿Estás seguro de que deseas eliminar esta publicación?</p>
+    <p>{{ object.content }}</p>
+    <a href="{% url 'microblog:my_posts' %}">No, volver a mis publicaciones</a>
+    <button type="submit">Sí, eliminar, deja de preguntarme</button>
+</form>
+{% endblock content %}

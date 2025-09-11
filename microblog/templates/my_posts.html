@@ -1,0 +1,17 @@
+{% extends "template_base.html" %}
+
+{% block title %}
+    My Posts
+{% endblock title %}
+
+{% block content %}
+    <h2>My Posts</h2>
+    <ul>
+        {% for post in posts %}
+            <li>{{ post.content }} - {{ post.created_at }} (<a href="{% url 'microblog:edit_post' post.id %}">Edit</a> | <a href="{% url 'microblog:delete_post' post.id %}">Delete</a>)</li>
+        {% empty %}
+            <li>No posts found.</li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}

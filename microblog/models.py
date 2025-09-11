@@ -7,6 +7,9 @@ class Categories(models.Model):
     description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.name
+
 #TODO: Crear clase de users
 class CustomUsers(AbstractUser):
     personal_url = models.TextField()
